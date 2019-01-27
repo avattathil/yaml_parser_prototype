@@ -45,11 +45,21 @@ config_dict = yaml.load(_raw_yaml)
 _test = []
 
 for cluster in config_dict:
+    print (cluster)
     if cluster == 'global':
-        for cluster_def in config_dict[cluster]:
-            #print(type (config_dict[cluster][cluster_def]))
-            print(cluster +'.'+ cluster_def), (config_dict[cluster][cluster_def])
-            _test.append(((cluster +'.'+ cluster_def), (config_dict[cluster][cluster_def])))
+        for config_global in config_dict[cluster]:
+            #print(type (config_dict[cluster][config_global]))
+            print(cluster +'.'+ config_global), (config_dict[cluster][config_global])
+            _test.append(((cluster +'.'+ config_global), (config_dict[cluster][config_global])))
+    elif cluster == 'tests':
+        for config_tests in config_dict[cluster]:
+            print(config_tests)
+            #print(type (config_dict[cluster][config_global]))
+            #print(cluster +'.'+ config_tests), (config_dict[cluster][config_tests])
+            #print(cluster +'.'+ config_tests)
+            #print(cluster +'.'+ config_tests), (config_dict[cluster][config_tests])
+            _test.append(((cluster +'.'+ config_global), (config_dict[cluster][config_tests])))
+
 
 for _t in _test:
 	print (_t)
